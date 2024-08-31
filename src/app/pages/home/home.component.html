@@ -1,0 +1,46 @@
+<div class="bg-[#1F1D36] min-h-screen flex flex-col items-center justify-center p-4">
+    <!-- Header Section -->
+    <div class="relative bottom-32 text-center">
+        <h1 class="text-white text-2xl md:text-4xl font-bold">URL Shortener</h1>
+    </div>
+    
+    <!-- Input and Button Section -->
+    <div class="flex flex-col items-center space-y-4">
+        <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <input
+                type="search"
+                placeholder="Add URL"
+                [(ngModel)]="url"
+                class="w-full sm:w-[30rem] px-4 py-2 bg-transparent text-white border-b-2 border-b-[#363062] text-base sm:text-lg focus:outline-none transition duration-300 ease-in-out"
+            />
+            <button
+                (click)="onShort()"
+                class="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300 ease-in-out">
+                Shorten
+            </button>
+        </div>
+        
+        <!-- Display shortened URL and copy button -->
+        <div *ngIf="isShortened" class="mt-4">
+            <p class="text-white">
+                Shortened URL: 
+                <a [href]="urlLink" target="_blank" class="underline">{{ urlLink }}</a>
+            </p>
+            <button
+                (click)="copyToClipboard()"
+                class="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 ease-in-out">
+                Copy
+            </button>
+        </div>
+
+        <!-- force error msg -->
+        <div *ngIf="isError" class="mt-4 text-red-500">
+            <p>{{ errorMessage }}</p>
+        </div>
+
+        <!-- valid error -->
+        <!-- <div *ngIf="!url && triedToShorten" class="mt-4 text-red-500">
+            <p>Please enter a valid URL to shorten.</p>
+        </div> -->
+    </div>
+</div>
