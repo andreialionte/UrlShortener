@@ -22,7 +22,7 @@ export class HomeComponent {
   constructor(private readonly urlShort: UrlshortenService) {}
 
   onShort(): void {
-    this.triedToShorten = true; // Set this flag when the user attempts to shorten a URL
+    this.triedToShorten = true;
 
     if (this.url) {
       const duration = 3000;
