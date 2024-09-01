@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UrlshortenService {
-  baseUrl: string = "https://localhost:5000/";
+  // baseUrl: string = "https://localhost:5000/";
+  baseUrl: string = "http://rourlsapi.hopto.org:5000/"
 
   constructor(private readonly httpClient: HttpClient) {}
 
