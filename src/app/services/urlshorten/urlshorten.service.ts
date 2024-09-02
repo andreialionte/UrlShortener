@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UrlshortenService {
-  // baseUrl: string = "https://localhost:5000/";
-  baseUrl: string = "http://rourlsapi.hopto.org:5000/"
+  baseUrl: string = "https://rourlsapi.hopto.org/"
+  // baseUrl: string = "https://localhost:5001/";
 
   constructor(private readonly httpClient: HttpClient) {}
 
-  // Shorten URL - send URL as a plain string
   shortTheUrl(url: string): Observable<string> {
     const params = new HttpParams().set('Url', url);
     return this.httpClient.post(`${this.baseUrl}ShortenUrl`, null, { params, responseType: 'text' });
