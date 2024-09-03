@@ -25,7 +25,7 @@ export class HomeComponent {
     this.triedToShorten = true;
 
     if (this.url) {
-      const duration = 3000;
+      const duration = 5000;
 
       confetti({
         particleCount: 500,
